@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <% if user_signed_in? %>
-                <span> Welcome, <%= current_user.email %> </span>
+                
                 <li class="nav-item">
                     <%= link_to "Create New Post", new_post_path, class:"navbar-item" %>
                 </li>
@@ -51,6 +51,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Dev</a>
                 </li>
+
+				 <% if user_signed_in? %>
+                <li class='nav-item'>
+                    <span>Welcome, <%= current_user.name %></span>
+                </li>
+				<% end %>
 
             </ul>
         </div>

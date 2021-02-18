@@ -16,11 +16,14 @@
         <div class='control'>
             <%
 =begin%>
- <%= f.text_field :user_id, value: current_user.id, id: :current_user.id, type: :hidden, class:'form-control' %> 
-<%
+            <%= f.text_field :user_id, value: current_user.id, id: :current_user.id, type: :hidden, class:'form-control' %>
+            <%
 =end%>
-            <%= f.text_field :user_id, value: current_user.id, type: :hidden, class:'form-control' %>
-    <% current_user.id%>
+            <div class='field'>
+
+                <%= f.text_field :user_id, value: current_user.id, type: :hidden, class:'form-control' %>
+                <%= puts current_user.id%>
+            </div>
         </div>
     </div>
     <%= f.button :submit, class: 'button is-primary' %>
