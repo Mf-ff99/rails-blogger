@@ -20,8 +20,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-			<% if user_signed_in? %>
-			<span> Welcome, <%= current_user.email %> </span>
+                <% if user_signed_in? %>
+                <span> Welcome, <%= current_user.email %> </span>
                 <li class="nav-item">
                     <%= link_to "Create New Post", new_post_path, class:"navbar-item" %>
                 </li>
@@ -30,11 +30,16 @@
 
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Profile", user_path, class:"navbar-item" %>
+                    <%= link_to "Profile", user_path(current_user), class:"navbar-item" %>
+                </li>
+
+                <li>
+                    <%= link_to 'Edit Profile',  edit_user_registration_path, class:'nav-link active'%>
+
                 </li>
 
 
-			<% else %>
+                <% else %>
                 <li class="nav-item">
                     <%= link_to "Sign in", new_user_session_path, class:"navbar-item" %>
                 </li>
@@ -42,11 +47,11 @@
                 <li class="nav-item">
                     <%= link_to "Register", new_user_registration_path, class:"navbar-item" %>
                 </li>
-			<% end %>
+                <% end %>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Dev</a>
                 </li>
-                
+
             </ul>
         </div>
     </nav>
