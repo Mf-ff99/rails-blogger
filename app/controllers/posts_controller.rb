@@ -44,6 +44,16 @@ class PostsController < ApplicationController
         redirect_to posts_path
     end
 
+    def correct_user
+        @user = current_user.posts.find_by(id: params[:id])
+        redirect_to root_path, notice: 'not authorized to be here'
+    end
+
+    def post_params 
+        params.require(:post).permit(:title, :content, :user_id)
+    end
+
+
     
     private
 
