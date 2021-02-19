@@ -1,2 +1,14 @@
 <h1><%= @user.name %>'s profile</h1>
 <%= @user.id %>
+<h2>Your Posts <span class="badge badge-secondary">New</span></h2>
+<% @user.posts.each do |post| %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">
+  <p class="title is-4"><%= link_to post.title, post  %></p>
+    </h1>
+    <p class="lead"><%= post.content %></p>
+    <span>Comments: <%= post.comments.count %> </span>
+  </div>
+</div>
+<% end %>
